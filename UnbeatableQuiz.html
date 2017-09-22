@@ -1,0 +1,267 @@
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="main.css">
+		<script>
+			function beginGame(){
+				document.getElementById("menu-view").style.display = "none";
+				document.getElementById("loss-view").style.display = "none";
+				document.getElementById("win-view").style.display = "none";
+				document.getElementById("question-view").style.display = "flex";
+				document.getElementById("attempts-left").innerHTML = 3;
+				questionOne();
+			}
+			function checkAnswer(){
+				var qNum = 0;
+				qNum = parseInt(document.getElementById("current-question").innerHTML);
+				var oA = document.getElementById("option-a").checked;
+				var oB = document.getElementById("option-b").checked;
+				var oC = document.getElementById("option-c").checked;
+				var oD = document.getElementById("option-d").checked;
+				switch(qNum){
+					case 1:
+						if(oA && !oB && oC && !oD){
+							questionTwo();
+						} else {
+							wrongAnswer();
+						}
+						break;
+					case 2:
+						if(!oA && oB && !oC && !oD){
+							questionThree();
+						} else {
+							wrongAnswer();
+						}
+						break;
+					case 3:
+						if(oA && !oB && !oC && !oD){
+							questionFour();
+						} else {
+							wrongAnswer();
+						}
+						break;
+					case 4:
+						if(!oA && !oB && oC && oD){
+							questionFive();
+						} else {
+							wrongAnswer();
+						}
+						break;
+					case 5:
+						if(!oA && !oB && oC && !oD){
+							questionSix();
+						} else {
+							wrongAnswer();
+						}
+						break;
+					case 6:
+						if(!oA && !oB && oC && !oD){
+							questionSeven();
+						} else {
+							wrongAnswer();
+						}
+						break;
+					case 7:
+						if(!oA && !oB && !oC && oD){
+							questionEight();
+						} else {
+							wrongAnswer();
+						}
+						break;
+					case 8:
+						if(!oA && oB && !oC && !oD){
+							questionNine();
+						} else {
+							wrongAnswer();
+						}
+						break;
+					case 9:
+						if(oA && !oB && !oC && !oD){
+							questionTen();
+						} else {
+							wrongAnswer();
+						}
+						break;
+					case 10:
+						if(!oA && oB && !oC && !oD){
+							document.getElementById("question-view").style.display = "none";
+							document.getElementById("win-view").style.display = "flex";
+						} else {
+							wrongAnswer();
+						}
+						break;
+				}
+				document.getElementById("option-a").checked = false;
+				document.getElementById("option-b").checked = false;
+				document.getElementById("option-c").checked = false;
+				document.getElementById("option-d").checked = false;
+				document.getElementById("answer-a").className = "answer";
+				document.getElementById("answer-b").className = "answer";
+				document.getElementById("answer-c").className = "answer";
+				document.getElementById("answer-d").className = "answer";
+				
+			}
+			function wrongAnswer(){
+				var attempts = 0;
+				attempts = parseInt(document.getElementById("attempts-left").innerHTML);
+				attempts -= 1;
+				document.getElementById("attempts-left").innerHTML = attempts; 
+				if(attempts < 1){
+					loseGame();
+				} 
+			}
+			function loseGame(){
+				document.getElementById("question-view").style.display = "none";
+				document.getElementById("win-view").style.display = "none";
+				document.getElementById("loss-view").style.display = "flex";
+			}
+			function questionOne(){
+				document.getElementById("current-question").innerHTML = 1;
+				document.getElementById("question").innerHTML = "Imagine you are in a sinking rowboat surrounded by sharks. How would you survive?";
+				document.getElementById("option-a-text").innerHTML = "Imagine you are in a sinking rowboat surrounded by sharks!";
+				document.getElementById("option-b-text").innerHTML = "Pay them what you owe!";
+				document.getElementById("option-c-text").innerHTML = "Don't...";
+				document.getElementById("option-d-text").innerHTML = "Sharks rarely attack humans, you’ll be fine.";
+			}
+			function questionTwo(){
+				document.getElementById("current-question").innerHTML = 2;
+				document.getElementById("question").innerHTML = "What was the current President's name in 1990?";
+				document.getElementById("option-a-text").innerHTML = "There were two.";
+				document.getElementById("option-b-text").innerHTML = "T. H. Esame.";
+				document.getElementById("option-c-text").innerHTML = "George H. W. Bush.";
+				document.getElementById("option-d-text").innerHTML = "Ezra Taft Benson.";
+			}
+			function questionThree(){
+				document.getElementById("current-question").innerHTML = 3;
+				document.getElementById("question").innerHTML = "Choose two days starting with “T”.";
+				document.getElementById("option-a-text").innerHTML = "Tuesdays.";
+				document.getElementById("option-b-text").innerHTML = "Today.";
+				document.getElementById("option-c-text").innerHTML = "Tomorrow.";
+				document.getElementById("option-d-text").innerHTML = "Thanksgiving.";
+			}
+			function questionFour(){
+				document.getElementById("current-question").innerHTML = 4;
+				document.getElementById("question").innerHTML = "If the red house is on the right side and if the blue house is on the left side where's the white house?";
+				document.getElementById("option-a-text").innerHTML = "In the middle.";
+				document.getElementById("option-b-text").innerHTML = "Left of Red House.";
+				document.getElementById("option-c-text").innerHTML = "Right of Blue House.";
+				document.getElementById("option-d-text").innerHTML = "Washington,";
+			}
+			function questionFive(){
+				document.getElementById("current-question").innerHTML = 5;
+				document.getElementById("question").innerHTML = "What is the exact middle of United States of America?";
+				document.getElementById("option-a-text").innerHTML = "Kansas.";
+				document.getElementById("option-b-text").innerHTML = "Latitude: 39.828346 | Longitude: -98.57948.";
+				document.getElementById("option-c-text").innerHTML = "E.";
+				document.getElementById("option-d-text").innerHTML = "What it’s always been.";
+			}
+			function questionSix(){
+				document.getElementById("current-question").innerHTML = 6;
+				document.getElementById("question").innerHTML = "What's the longest word in the English language?";
+				document.getElementById("option-a-text").innerHTML = "Supercalifragilisticexpialidocious.";
+				document.getElementById("option-b-text").innerHTML = "Infinity.";
+				document.getElementById("option-c-text").innerHTML = "Smiles.";
+				document.getElementById("option-d-text").innerHTML = "Language.";
+			}
+			function questionSeven(){
+				document.getElementById("current-question").innerHTML = 7;
+				document.getElementById("question").innerHTML = "Would it be ethical for a man to marry the sister of his widow?";
+				document.getElementById("option-a-text").innerHTML = "Yes.";
+				document.getElementById("option-b-text").innerHTML = "No.";
+				document.getElementById("option-c-text").innerHTML = "You can't marry a spider!";
+				document.getElementById("option-d-text").innerHTML = "Impossible.";
+			}
+			function questionEight(){
+				document.getElementById("current-question").innerHTML = 8;
+				document.getElementById("question").innerHTML = "When do you stop at green and go at red?";
+				document.getElementById("option-a-text").innerHTML = "A Stoplight.";
+				document.getElementById("option-b-text").innerHTML = "A watermelon.";
+				document.getElementById("option-c-text").innerHTML = "Germany.";
+				document.getElementById("option-d-text").innerHTML = "A carnivore.";
+			}
+			function questionNine(){
+				document.getElementById("current-question").innerHTML = 9;
+				document.getElementById("question").innerHTML = "What do you do at a green light?";
+				document.getElementById("option-a-text").innerHTML = "Go.";
+				document.getElementById("option-b-text").innerHTML = "Stop.";
+				document.getElementById("option-c-text").innerHTML = "Sing if your John Legend.";
+				document.getElementById("option-d-text").innerHTML = "Look both ways.";
+			}
+			function questionTen(){
+				document.getElementById("current-question").innerHTML = 10;
+				document.getElementById("question").innerHTML = "How many sides does a circle have?";
+				document.getElementById("option-a-text").innerHTML = "1.";
+				document.getElementById("option-b-text").innerHTML = "2.";
+				document.getElementById("option-c-text").innerHTML = "2 Pi.";
+				document.getElementById("option-d-text").innerHTML = "None, it's round...";
+			}
+			function checkOA(){
+				document.getElementById("option-a").checked = !document.getElementById("option-a").checked;
+				if(document.getElementById("answer-a").className == "answer"){
+					document.getElementById("answer-a").className += " selected-answer";
+				} else {
+					document.getElementById("answer-a").className = "answer";
+				}
+			}
+			function checkOB(){
+				document.getElementById("option-b").checked = !document.getElementById("option-b").checked;
+				if(document.getElementById("answer-b").className == "answer"){
+					document.getElementById("answer-b").className += " selected-answer";
+				} else {
+					document.getElementById("answer-b").className = "answer";
+				}
+			}
+			function checkOC(){
+				document.getElementById("option-c").checked = !document.getElementById("option-c").checked;
+				if(document.getElementById("answer-c").className == "answer"){
+					document.getElementById("answer-c").className += " selected-answer";
+				} else {
+					document.getElementById("answer-c").className = "answer";
+				}
+			}
+			function checkOD(){
+				document.getElementById("option-d").checked = !document.getElementById("option-d").checked;
+				if(document.getElementById("answer-d").className == "answer"){
+					document.getElementById("answer-d").className += " selected-answer";
+				} else {
+					document.getElementById("answer-d").className = "answer";
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="menu-view">
+			<div id="game-title">The Unbeatable Quiz</div>
+			<div id="game-challenge">Do you even stand a chance?</div>
+			<div class="game-button" onclick="beginGame()">Start Game</div>
+			<div id="bottom-right" class="game-button" onclick="location.href='instructions.html';">Click Here For Instructions</div>
+		</div>
+		<div id="question-view">
+			<div id="question-container">
+				<h1 id="question">This is a question.</h1>
+			</div>
+			<div id="option-container">
+				<div id="answer-a" class="answer" onclick="checkOA()"><input id="option-a" type="checkbox">A. <span id="option-a-text"></span></div>
+				<div id="answer-b" class="answer" onclick="checkOB()"><input id="option-b" type="checkbox">B. <span id="option-b-text"></span></div>
+				<div id="answer-c" class="answer" onclick="checkOC()"><input id="option-c" type="checkbox">C. <span id="option-c-text"></span></div>
+				<div id="answer-d" class="answer" onclick="checkOD()"><input id="option-d" type="checkbox">D. <span id="option-d-text"></span></div>
+			</div>
+			<div id="bottom-container">
+				<div id="question-tracker">Question: <span id="current-question">#</span> of 10</div>
+				<div class="game-button" onclick="checkAnswer()">Submit Answer</div>
+				<div id="attempt-tracker">Attempts Left: <span id="attempts-left">#</span></div>
+			</div>
+		</div>
+		<div id="loss-view">
+			<div id="loss-messagebox">
+				<h1 id="loss-message">YOU LOSE</h1>
+			</div>
+			<div class="game-button" onclick="beginGame()">Try Again?</div>
+		</div>
+		<div id="win-view">
+			<div id="win-messagebox">
+				<h1 id="win-message">You... won..? Okay, fine then.</h1>
+			</div>
+			<div class="game-button" onclick="loseGame()">Gloat!</div>
+		</div>
+	</body>
+</html>

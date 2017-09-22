@@ -1,0 +1,48 @@
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="main.css">
+		<script> 
+			function answerKey(){
+				document.getElementById("container").style.display = "none";
+				document.getElementById("bottom-right").style.display = "none";
+				document.getElementById("answer-key").style.display = "flex";
+			}
+
+		</script>
+	</head>
+	<body>
+	<div id="container">
+	<div class="title">Instructions</div>
+		<p>Playing this game is fairly simple:</p>
+		<ul>
+			<li>You read the question.</li>
+			<li>You think real hard.</li>
+			<li>You select your response.</li>
+			<li>You click submit.</li>
+		</ul>
+		<p>If your submission is correct it will advance you to 
+			the next question. If your submission was incorrect then 
+			you will lose one of you three alloted attempts. If you 
+			lose all attempts you lose the game. Last rule is you aren't 
+			allowed to gloat if you win.</p>
+	</div>
+	<div id="bottom-right" class="game-button" onclick="answerKey()">Click If You're Whimpy</div>
+	<div id="answer-key">
+		<div class="title">Answer Key</div>
+		<ol>
+			<li>A + C, "Don't" & "Imagine", because if you stop imagining then you're safe.</li>
+			<li>B, because his name is the same now as it was then.</li>
+			<li>A, "Tuesdays" and "two days" are a play on words.</li>
+			<li>C + D, because the white house is located in Washington, D.C.</li>
+			<li>C, because the letter 'E' is the middle of the phrase.</li>
+			<li>C, because there's a mile in it.</li>
+			<li>D, It would be impossible. Since he has a widow, he must be dead himself.</li>
+			<li>B, When you're eating a watermelon</li>
+			<li>A, just GO already!</li>
+			<li>B, Two. An inside and an outside.</li>
+		</ol>
+	</div>
+	<div id="bottom-right-2" class="game-button" onclick="location.href='instructions.html';">Toughened Up?</div>
+	<div class="game-button" onclick="location.href='UnbeatableQuiz.html';">Go Back</div>
+	</body>
+</html>
